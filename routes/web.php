@@ -54,3 +54,21 @@ Route::prefix('/dosen')->group(function(){
         echo "<h1>Materi Perkuliahan</h1>";
     });
 });
+
+Route::get('/fakultas', function () {
+    // return view('fakultas.index', 
+    // ["ilkom" => "fakultas Ilmu Komputer dan Rekayasa"]);
+
+    // return view('fakultas.index', 
+    // ["fakultas" => ["fakultas Ilmu Komputer dan Rekayasa","Fakultas Ilmu Ekonomi"]]);
+
+    // return view('fakultas.index') -> with 
+    // ("fakultas" , ["fakultas Ilmu Komputer dan Rekayasa","Fakultas Ilmu Ekonomi"]);
+
+    $kampus = "Universitas Multi Data Palembang";
+
+    //$fakultas = [];
+
+    $fakultas = ["fakultas Ilmu Komputer dan Rekayasa","Fakultas Ilmu Ekonomi"];
+    return view('fakultas.index', compact ('fakultas', 'kampus'));
+});
