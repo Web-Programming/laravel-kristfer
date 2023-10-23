@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,14 +23,14 @@ Route::get('/profile', function(){
 });
 
 //Route dengan Parameter (WAJIB)
-Route::get('/mahasiswa/{nama}', function($nama = "Nur"){
-    echo "<h1>Halo nama saya $nama</h1";
-});
+// Route::get('/mahasiswa/{nama}', function($nama = "Nur"){
+//     echo "<h1>Halo nama saya $nama</h1";
+// });
 
 //Route tidak dengan Parameter (Tidak WAJIB)
-Route::get('/mahasiswa2/{nama?}', function($nama = "Nur"){
-    echo "<h1>Halo nama saya $nama</h1";
-});
+// Route::get('/mahasiswa2/{nama?}', function($nama = "Nur"){
+//     echo "<h1>Halo nama saya $nama</h1";
+// });
 
 //Route dengan Parameter > 1
 Route::get('/profile/{nama?}/{pekerjaan?}', function($nama = "Nur", $pekerjaan = "Mahasiswa"){
@@ -56,13 +57,13 @@ Route::prefix('/dosen')->group(function(){
 });
 
 Route::get('/fakultas', function () {
-    // return view('fakultas.index', 
+    // return view('fakultas.index',
     // ["ilkom" => "fakultas Ilmu Komputer dan Rekayasa"]);
 
-    // return view('fakultas.index', 
+    // return view('fakultas.index',
     // ["fakultas" => ["fakultas Ilmu Komputer dan Rekayasa","Fakultas Ilmu Ekonomi"]]);
 
-    // return view('fakultas.index') -> with 
+    // return view('fakultas.index') -> with
     // ("fakultas" , ["fakultas Ilmu Komputer dan Rekayasa","Fakultas Ilmu Ekonomi"]);
 
     $kampus = "Universitas Multi Data Palembang";
@@ -72,3 +73,14 @@ Route::get('/fakultas', function () {
     $fakultas = ["fakultas Ilmu Komputer dan Rekayasa","Fakultas Ilmu Ekonomi"];
     return view('fakultas.index', compact ('fakultas', 'kampus'));
 });
+
+
+Route::get
+('/mahasiswa/insert-elq', [MahasiswaController::class, 'insertElq']);
+Route::get
+('/mahasiswa/update-elq', [MahasiswaController::class, 'updateElq']);
+Route::get
+('/mahasiswa/delete-elq', [MahasiswaController::class, 'deleteElq']);
+Route::get
+('/mahasiswa/select-elq', [MahasiswaController::class, 'selectElq']);
+
