@@ -21,4 +21,8 @@ class Mahasiswa extends Model
     // untuk mengatur kolom yang tidak boleh diisi / dilindungi
     // misal ada kolom npm yang tidak boleh diisi, maka kolom tersebut dijaga / tidak boleh diisi
     protected $guarded = [];
+
+    public function mahasiswa(){
+        return $this->hasMany('App\Models\Mahasiswa');
+    }
 }
