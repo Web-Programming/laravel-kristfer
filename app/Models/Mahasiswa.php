@@ -25,4 +25,8 @@ class Mahasiswa extends Model
     public function mahasiswa(){
         return $this->hasMany('App\Models\Mahasiswa');
     }
+
+    public function prodi(){
+        return $this->belongsTo('App\Models\Prodi');
+    }
 }
